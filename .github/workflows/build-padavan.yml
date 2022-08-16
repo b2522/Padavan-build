@@ -16,7 +16,7 @@ on:
     
 env:
   KERNEL: 4.4
-  TNAME: XY-C1
+  TNAME: MSG1500
   DEBIAN_FRONTEND: noninteractive
   
 jobs:
@@ -95,7 +95,7 @@ jobs:
         ##网络云盘##
         echo "CONFIG_FIRMWARE_INCLUDE_ALDRIVER=n" >> .config  #阿里云盘  ~3m
         ##流控QOS##
-        echo "CONFIG_FIRMWARE_INCLUDE_SQM=n" >> .config #SQM QOS#CPU超频
+        echo "CONFIG_FIRMWARE_INCLUDE_SQM=y" >> .config #SQM QOS#CPU超频
         echo "CONFIG_FIRMWARE_INCLUDE_OC=n" >> .config #CPU超频开关
         echo 'CONFIG_FIRMWARE_MT7621_OC="0x312"' >> .config #此处填写对应频率的十六进制：1000Mhz=0x312 1100Mhz=0x362 1120Mhz=0x372 1200Mhz=0x3B2
         else
@@ -136,5 +136,5 @@ jobs:
       if: always()
       with:
         #修改名字方便辨认是哪一个型号的固件，Padavan_内核版本(机器型号)
-        name: Padavan4.4(XY-C1)
+        name: Padavan4.4(MSG1500)
         path: /opt/images
